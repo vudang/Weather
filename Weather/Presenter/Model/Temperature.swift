@@ -18,4 +18,15 @@ extension Temperature {
         let avg = Int((min.unwrapValue() + max.unwrapValue()) / 2)
         return "\(avg)°C"
     }
+    
+    func toStorable() -> TempStoreable {
+        let temp = TempStoreable()
+        temp.day = day.unwrapValue()
+        temp.min = min.unwrapValue()
+        temp.max = max.unwrapValue()
+        temp.night = night.unwrapValue()
+        temp.eve = evening.unwrapValue()
+        temp.morn = morning.unwrapValue()
+        return temp
+    }
 }

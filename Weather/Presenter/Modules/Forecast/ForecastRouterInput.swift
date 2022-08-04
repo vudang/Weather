@@ -12,7 +12,7 @@ import UIKit
 struct ForecastRouterInput {
     func view() -> ForecastViewController {
         let view = ForecastViewController()
-        let interactor = ForecastInteractor()
+        let interactor = ForecastInteractor(localDatabase: LocalDatabaseImpl(), remoteRequest: RemoteRequestImpl())
         let dependencies = ForecastPresenterDependencies(interactor: interactor, router: ForecastRouterOutput(view))
         let presenter = ForecastPresenter(view: view, dependencies: dependencies)
         view.presenter = presenter

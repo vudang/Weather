@@ -14,7 +14,6 @@
 		475B02EA26A6A65E00712ED5 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475B02E526A6A65E00712ED5 /* Request.swift */; };
 		475B02EC26A6A97700712ED5 /* Decodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475B02EB26A6A97700712ED5 /* Decodable+Extension.swift */; };
 		475B02EF26A6B14000712ED5 /* WeatherEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475B02EE26A6B14000712ED5 /* WeatherEntity.swift */; };
-		475B02F126A6B4AB00712ED5 /* Requester+Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475B02F026A6B4AB00712ED5 /* Requester+Forecast.swift */; };
 		475B02F526A7273700712ED5 /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475B02F326A7273700712ED5 /* ForecastTableViewCell.swift */; };
 		475B02F826A8690000712ED5 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475B02F726A8690000712ED5 /* UIAlertController+Extension.swift */; };
 		4A5B56BB2195E0E4005082B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5B56BA2195E0E4005082B8 /* AppDelegate.swift */; };
@@ -31,6 +30,19 @@
 		AED17A2621993C2A0000127C /* ForecastRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED17A2521993C2A0000127C /* ForecastRouterInput.swift */; };
 		AED17A2821993C450000127C /* ForecastInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED17A2721993C450000127C /* ForecastInteractor.swift */; };
 		AED17A3721995D900000127C /* ForecastEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED17A3621995D900000127C /* ForecastEntities.swift */; };
+		EA814013289B67AE00D52E19 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81400A289B67AE00D52E19 /* RealmManager.swift */; };
+		EA814014289B67AE00D52E19 /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81400B289B67AE00D52E19 /* LocalDataManager.swift */; };
+		EA814015289B67AE00D52E19 /* RealmProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81400C289B67AE00D52E19 /* RealmProtocol.swift */; };
+		EA81401B289B6A5600D52E19 /* WeatherStoreable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81401A289B6A5600D52E19 /* WeatherStoreable.swift */; };
+		EA81401D289B6A6100D52E19 /* CityStoreable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81401C289B6A6100D52E19 /* CityStoreable.swift */; };
+		EA81401F289B70E300D52E19 /* TempStoreable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81401E289B70E300D52E19 /* TempStoreable.swift */; };
+		EA814021289B76E900D52E19 /* FeelsLikeStoreable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA814020289B76E900D52E19 /* FeelsLikeStoreable.swift */; };
+		EA814023289B7A1200D52E19 /* WeatherInfoStoreable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA814022289B7A1200D52E19 /* WeatherInfoStoreable.swift */; };
+		EA814025289B8DC400D52E19 /* ForecastStoreable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA814024289B8DC400D52E19 /* ForecastStoreable.swift */; };
+		EA81402B289B99FD00D52E19 /* LocalDatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81402A289B99FD00D52E19 /* LocalDatabaseProtocol.swift */; };
+		EA81402D289B9A3100D52E19 /* LocalDatabaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81402C289B9A3100D52E19 /* LocalDatabaseImpl.swift */; };
+		EA81402F289B9B0F00D52E19 /* RemoteRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81402E289B9B0F00D52E19 /* RemoteRequestProtocol.swift */; };
+		EA814031289B9B5000D52E19 /* RemoteRequestImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA814030289B9B5000D52E19 /* RemoteRequestImpl.swift */; };
 		EAC44E10289A3FE200DFE305 /* city.list.json in Resources */ = {isa = PBXBuildFile; fileRef = EAC44E0F289A3FE200DFE305 /* city.list.json */; };
 		EAC44E13289A4C9000DFE305 /* AppKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC44E12289A4C9000DFE305 /* AppKey.swift */; };
 		EAC44E15289A4DFB00DFE305 /* WeatherUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC44E14289A4DFB00DFE305 /* WeatherUnit.swift */; };
@@ -74,7 +86,6 @@
 		475B02E526A6A65E00712ED5 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		475B02EB26A6A97700712ED5 /* Decodable+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Decodable+Extension.swift"; sourceTree = "<group>"; };
 		475B02EE26A6B14000712ED5 /* WeatherEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherEntity.swift; sourceTree = "<group>"; };
-		475B02F026A6B4AB00712ED5 /* Requester+Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Requester+Forecast.swift"; sourceTree = "<group>"; };
 		475B02F326A7273700712ED5 /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTableViewCell.swift; sourceTree = "<group>"; };
 		475B02F726A8690000712ED5 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		4A5B56B72195E0E4005082B8 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +109,19 @@
 		AED17A2721993C450000127C /* ForecastInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastInteractor.swift; sourceTree = "<group>"; };
 		AED17A3621995D900000127C /* ForecastEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastEntities.swift; sourceTree = "<group>"; };
 		C9A8B96D3553C1491171A7E3 /* Pods_WeatherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA81400A289B67AE00D52E19 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		EA81400B289B67AE00D52E19 /* LocalDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
+		EA81400C289B67AE00D52E19 /* RealmProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmProtocol.swift; sourceTree = "<group>"; };
+		EA81401A289B6A5600D52E19 /* WeatherStoreable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStoreable.swift; sourceTree = "<group>"; };
+		EA81401C289B6A6100D52E19 /* CityStoreable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityStoreable.swift; sourceTree = "<group>"; };
+		EA81401E289B70E300D52E19 /* TempStoreable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempStoreable.swift; sourceTree = "<group>"; };
+		EA814020289B76E900D52E19 /* FeelsLikeStoreable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelsLikeStoreable.swift; sourceTree = "<group>"; };
+		EA814022289B7A1200D52E19 /* WeatherInfoStoreable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoStoreable.swift; sourceTree = "<group>"; };
+		EA814024289B8DC400D52E19 /* ForecastStoreable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastStoreable.swift; sourceTree = "<group>"; };
+		EA81402A289B99FD00D52E19 /* LocalDatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabaseProtocol.swift; sourceTree = "<group>"; };
+		EA81402C289B9A3100D52E19 /* LocalDatabaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabaseImpl.swift; sourceTree = "<group>"; };
+		EA81402E289B9B0F00D52E19 /* RemoteRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRequestProtocol.swift; sourceTree = "<group>"; };
+		EA814030289B9B5000D52E19 /* RemoteRequestImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRequestImpl.swift; sourceTree = "<group>"; };
 		EAC44E0F289A3FE200DFE305 /* city.list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.list.json; sourceTree = "<group>"; };
 		EAC44E12289A4C9000DFE305 /* AppKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKey.swift; sourceTree = "<group>"; };
 		EAC44E14289A4DFB00DFE305 /* WeatherUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUnit.swift; sourceTree = "<group>"; };
@@ -154,11 +178,11 @@
 		475B02ED26A6B12A00712ED5 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				475B02EE26A6B14000712ED5 /* WeatherEntity.swift */,
 				EAC44E16289A4F0B00DFE305 /* CityEntity.swift */,
-				EAC44E18289A4F8800DFE305 /* ForecastEntity.swift */,
 				EAC44E21289A543D00DFE305 /* FeelsLikeEntity.swift */,
+				EAC44E18289A4F8800DFE305 /* ForecastEntity.swift */,
 				EAC44E23289A545100DFE305 /* TempEntity.swift */,
+				475B02EE26A6B14000712ED5 /* WeatherEntity.swift */,
 				EAC44E25289A546F00DFE305 /* WeatherInfoEntity.swift */,
 			);
 			path = Entity;
@@ -197,8 +221,8 @@
 			children = (
 				4A5B56BA2195E0E4005082B8 /* AppDelegate.swift */,
 				EAC44E34289A5B9700DFE305 /* Core */,
+				EA814027289B99AE00D52E19 /* Domain */,
 				EAC44E33289A5B8600DFE305 /* Helper */,
-				EAC44E1A289A518F00DFE305 /* Model */,
 				EAC44E35289A5C3500DFE305 /* Presenter */,
 				4A5B56DA2195E912005082B8 /* Resources */,
 			);
@@ -283,6 +307,56 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		EA814007289B665E00D52E19 /* Storeable */ = {
+			isa = PBXGroup;
+			children = (
+				EA81401C289B6A6100D52E19 /* CityStoreable.swift */,
+				EA814020289B76E900D52E19 /* FeelsLikeStoreable.swift */,
+				EA814024289B8DC400D52E19 /* ForecastStoreable.swift */,
+				EA81401E289B70E300D52E19 /* TempStoreable.swift */,
+				EA814022289B7A1200D52E19 /* WeatherInfoStoreable.swift */,
+				EA81401A289B6A5600D52E19 /* WeatherStoreable.swift */,
+			);
+			path = Storeable;
+			sourceTree = "<group>";
+		};
+		EA814008289B67AE00D52E19 /* LocalDB */ = {
+			isa = PBXGroup;
+			children = (
+				EA81400A289B67AE00D52E19 /* RealmManager.swift */,
+				EA81400B289B67AE00D52E19 /* LocalDataManager.swift */,
+				EA81400C289B67AE00D52E19 /* RealmProtocol.swift */,
+			);
+			path = LocalDB;
+			sourceTree = "<group>";
+		};
+		EA814026289B999400D52E19 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				EA81402A289B99FD00D52E19 /* LocalDatabaseProtocol.swift */,
+				EA81402E289B9B0F00D52E19 /* RemoteRequestProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		EA814027289B99AE00D52E19 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				EA814029289B99C700D52E19 /* Implement */,
+				EA814026289B999400D52E19 /* Protocol */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		EA814029289B99C700D52E19 /* Implement */ = {
+			isa = PBXGroup;
+			children = (
+				EA81402C289B9A3100D52E19 /* LocalDatabaseImpl.swift */,
+				EA814030289B9B5000D52E19 /* RemoteRequestImpl.swift */,
+			);
+			path = Implement;
+			sourceTree = "<group>";
+		};
 		EAC44E11289A4C4B00DFE305 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,12 +370,12 @@
 		EAC44E1A289A518F00DFE305 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EAC44E1D289A530A00DFE305 /* City.swift */,
 				EAC44E27289A54CE00DFE305 /* FeelsLike.swift */,
 				EAC44E28289A54CE00DFE305 /* Forecast.swift */,
 				EAC44E29289A54CE00DFE305 /* Temperature.swift */,
-				EAC44E2A289A54CE00DFE305 /* WeatherInfo.swift */,
-				EAC44E1D289A530A00DFE305 /* City.swift */,
 				EAC44E31289A59DD00DFE305 /* Weather.swift */,
+				EAC44E2A289A54CE00DFE305 /* WeatherInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,7 +393,8 @@
 		EAC44E34289A5B9700DFE305 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				EAC44E38289AC84700DFE305 /* Requester */,
+				EA814008289B67AE00D52E19 /* LocalDB */,
+				EA814007289B665E00D52E19 /* Storeable */,
 				AED17A29219940F70000127C /* Network */,
 				475B02ED26A6B12A00712ED5 /* Entity */,
 			);
@@ -329,18 +404,11 @@
 		EAC44E35289A5C3500DFE305 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				EAC44E1A289A518F00DFE305 /* Model */,
 				AED17A0E21992AA10000127C /* Protocols */,
 				AED17A1D21993BD90000127C /* Modules */,
 			);
 			path = Presenter;
-			sourceTree = "<group>";
-		};
-		EAC44E38289AC84700DFE305 /* Requester */ = {
-			isa = PBXGroup;
-			children = (
-				475B02F026A6B4AB00712ED5 /* Requester+Forecast.swift */,
-			);
-			path = Requester;
 			sourceTree = "<group>";
 		};
 		EAC44E42289AD77700DFE305 /* Loading */ = {
@@ -533,42 +601,54 @@
 			files = (
 				475B02EA26A6A65E00712ED5 /* Request.swift in Sources */,
 				EAC44E17289A4F0B00DFE305 /* CityEntity.swift in Sources */,
+				EA814023289B7A1200D52E19 /* WeatherInfoStoreable.swift in Sources */,
+				EA81402F289B9B0F00D52E19 /* RemoteRequestProtocol.swift in Sources */,
 				EAC44E1E289A530A00DFE305 /* City.swift in Sources */,
 				EAC44E2C289A54CE00DFE305 /* Forecast.swift in Sources */,
+				EA814021289B76E900D52E19 /* FeelsLikeStoreable.swift in Sources */,
 				EAC44E44289AD78700DFE305 /* ActivityIndicator.swift in Sources */,
 				EAC44E32289A59DD00DFE305 /* Weather.swift in Sources */,
 				475B02F826A8690000712ED5 /* UIAlertController+Extension.swift in Sources */,
 				EAC44E2E289A54CE00DFE305 /* WeatherInfo.swift in Sources */,
+				EA81401F289B70E300D52E19 /* TempStoreable.swift in Sources */,
 				EAC44E1C289A521C00DFE305 /* Entity.swift in Sources */,
+				EA81402D289B9A3100D52E19 /* LocalDatabaseImpl.swift in Sources */,
 				EAC44E2D289A54CE00DFE305 /* Temperature.swift in Sources */,
 				475B02E626A6A65E00712ED5 /* APIRouter.swift in Sources */,
 				EAC44E15289A4DFB00DFE305 /* WeatherUnit.swift in Sources */,
 				EAC44E13289A4C9000DFE305 /* AppKey.swift in Sources */,
 				AED17A2821993C450000127C /* ForecastInteractor.swift in Sources */,
 				AED17A2621993C2A0000127C /* ForecastRouterInput.swift in Sources */,
+				EA814013289B67AE00D52E19 /* RealmManager.swift in Sources */,
 				475B02EF26A6B14000712ED5 /* WeatherEntity.swift in Sources */,
 				475B02E926A6A65E00712ED5 /* Protocol.swift in Sources */,
 				EAC44E40289AD1C500DFE305 /* Number+Extension.swift in Sources */,
 				475B02EC26A6A97700712ED5 /* Decodable+Extension.swift in Sources */,
 				EAC44E3A289AC8C700DFE305 /* Date+Extension.swift in Sources */,
 				EAC44E30289A572C00DFE305 /* Host.swift in Sources */,
+				EA814015289B67AE00D52E19 /* RealmProtocol.swift in Sources */,
 				EAC44E2B289A54CE00DFE305 /* FeelsLike.swift in Sources */,
 				EAC44E22289A543D00DFE305 /* FeelsLikeEntity.swift in Sources */,
 				EAC44E37289ABF4B00DFE305 /* AppError.swift in Sources */,
+				EA814025289B8DC400D52E19 /* ForecastStoreable.swift in Sources */,
+				EA81401B289B6A5600D52E19 /* WeatherStoreable.swift in Sources */,
 				475B02F526A7273700712ED5 /* ForecastTableViewCell.swift in Sources */,
-				475B02F126A6B4AB00712ED5 /* Requester+Forecast.swift in Sources */,
 				AED17A1021992ABB0000127C /* Routerable.swift in Sources */,
+				EA814014289B67AE00D52E19 /* LocalDataManager.swift in Sources */,
 				AED17A2421993C180000127C /* ForecastPresenter.swift in Sources */,
 				EAC44E3E289AD13300DFE305 /* WrapValue.swift in Sources */,
 				AED17A3721995D900000127C /* ForecastEntities.swift in Sources */,
 				EAC44E24289A545100DFE305 /* TempEntity.swift in Sources */,
 				AED17A1421992AEF0000127C /* Viewable.swift in Sources */,
+				EA81401D289B6A6100D52E19 /* CityStoreable.swift in Sources */,
 				EAC44E26289A546F00DFE305 /* WeatherInfoEntity.swift in Sources */,
 				AED17A1221992AD90000127C /* Presenterable.swift in Sources */,
+				EA814031289B9B5000D52E19 /* RemoteRequestImpl.swift in Sources */,
 				AED17A1621992B090000127C /* Interactorable.swift in Sources */,
 				4A5B56BB2195E0E4005082B8 /* AppDelegate.swift in Sources */,
 				AED17A2121993C000000127C /* ForecastViewController.swift in Sources */,
 				EAC44E19289A4F8800DFE305 /* ForecastEntity.swift in Sources */,
+				EA81402B289B99FD00D52E19 /* LocalDatabaseProtocol.swift in Sources */,
 				475B02E726A6A65E00712ED5 /* Domain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

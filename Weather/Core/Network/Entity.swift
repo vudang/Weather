@@ -8,10 +8,17 @@
 
 import Foundation
 
-public protocol Entity {
+protocol Entity {
     associatedtype ModelType: Modelable
-    
     func toModel() -> ModelType
 }
 
-public protocol Modelable {}
+protocol Modelable {
+    associatedtype StoreType: Storable
+    func toStorable() -> StoreType
+}
+
+protocol Storable {
+    associatedtype ModelType: Modelable
+    func toModel() -> ModelType
+}

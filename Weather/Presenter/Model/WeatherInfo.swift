@@ -21,4 +21,13 @@ extension WeatherInfo {
         
         return "\(Host.resourceHost)/img/wn/\(icon)@2x.png"
     }
+    
+    func toStorable() -> WeatherInfoStoreable {
+        let info = WeatherInfoStoreable()
+        info.id = id.unwrapValue()
+        info.main = main
+        info.weatherDescription = weatherDescription
+        info.icon = icon
+        return info
+    }
 }

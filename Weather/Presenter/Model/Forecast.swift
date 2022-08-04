@@ -24,4 +24,16 @@ extension Forecast {
     var humidityValue: String {
         return "\(humidity.unwrapValue())%"
     }
+    
+    func toStorable() -> ForecastStoreable {
+        let forecast = ForecastStoreable()
+        forecast.dayTime = dayTime.unwrapValue()
+        forecast.temperature = temperature?.toStorable()
+        forecast.feelsLike = feelsLike?.toStorable()
+        forecast.pressure = pressure.unwrapValue()
+        forecast.humidity = humidity.unwrapValue()
+        let weathers = weather?.map { $0.toStorable() } ?? []
+        forecast.weathers.append(objectsIn: weathers)
+        return forecast
+    }
 }

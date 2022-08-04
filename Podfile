@@ -9,6 +9,7 @@ target 'Weather' do
   pod 'Alamofire'
   pod 'AlamofireImage'
   pod 'SnapKit'
+  pod 'RealmSwift'
 
   target 'WeatherTests' do
     inherit! :search_paths
