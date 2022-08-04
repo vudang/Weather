@@ -17,7 +17,7 @@ protocol ForecastViewOutputs: AnyObject {
     func didSelected(_ currency: Forecast)
 }
 
-final class ForecastViewController: UIViewController, ForecastViewInputs, Viewable {
+final class ForecastViewController: UIViewController, ForecastViewInputs {
     internal var presenter: ForecastViewOutputs?
     internal let forecastSubject = BehaviorRelay<[Forecast]>.init(value: [])
     private lazy var disposeBag = DisposeBag()
@@ -34,16 +34,14 @@ final class ForecastViewController: UIViewController, ForecastViewInputs, Viewab
     }
     
     private func configure() {
-        view.backgroundColor = .white
         navigationItem.title = "Weather Forecast"
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationController?.navigationBar.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.sizeToFit()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "textformat.size"), style: .plain, target: self, action: #selector(changeFontPressed))
-        navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.rightBarButtonItem?.tintColor = .label
         
         configureTableView()
         configureSearchBar()

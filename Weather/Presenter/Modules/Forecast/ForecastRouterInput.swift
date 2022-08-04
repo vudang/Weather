@@ -13,8 +13,9 @@ struct ForecastRouterInput {
     func view() -> ForecastViewController {
         let view = ForecastViewController()
         let interactor = ForecastInteractor(localDatabase: LocalDatabaseImpl(), remoteRequest: RemoteRequestImpl())
-        let dependencies = ForecastPresenterDependencies(interactor: interactor, router: ForecastRouterOutput(view))
-        let presenter = ForecastPresenter(view: view, dependencies: dependencies)
+        let presenter = ForecastPresenter(view: view,
+                                          interactor: interactor,
+                                          routerOutput: ForecastRouterOutput(view))
         view.presenter = presenter
         interactor.presenter = presenter
         return view
@@ -34,7 +35,7 @@ struct ForecastRouterInput {
 final class ForecastRouterOutput: Routerable {
     private(set) weak var view: Viewable!
 
-    init(_ view: Viewable) {
+    init(_ view: ForecastViewInputs) {
         self.view = view
     }
 

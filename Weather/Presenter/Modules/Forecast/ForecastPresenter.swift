@@ -14,33 +14,34 @@ typealias ForecastPresenterDependencies = (
     router: ForecastRouterOutput
 )
 
-protocol ForecastViewInputs: AnyObject {
+protocol ForecastViewInputs: Viewable {
     func reloadData(_ data: ForecastEntities)
     func onError(_ error: String?)
     func indicator(animate: Bool)
 }
 
-final class ForecastPresenter: Presenterable {
+final class ForecastPresenter {
     internal var entities: ForecastEntities?
     private weak var view: ForecastViewInputs!
-    let dependencies: ForecastPresenterDependencies
-    private var counter: String?
+    private let interactor: ForecastInteractorProtocol
+    private let router: ForecastRouterOutput!
 
     init(view: ForecastViewInputs,
-         dependencies: ForecastPresenterDependencies)
-    {
+         interactor: ForecastInteractorProtocol,
+         routerOutput: ForecastRouterOutput) {
         self.view = view
-        self.dependencies = dependencies
+        self.interactor = interactor
+        self.router = routerOutput
     }
 }
 
 extension ForecastPresenter: ForecastViewOutputs {
     func searchWeatherForecast(with keyword: String) {
-        dependencies.interactor.queryWeatherChange(keyword)
+        interactor.queryWeatherChange(keyword)
     }
     
     func didSelected(_ forecast: Forecast) {
-        dependencies.router.transitionDetail(forecast)
+        router.transitionDetail(forecast)
     }
 }
 

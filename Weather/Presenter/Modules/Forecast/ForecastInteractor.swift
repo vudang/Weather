@@ -15,7 +15,13 @@ protocol ForecastInteractorOutputs: AnyObject {
     func showIndicator(_ show: Bool)
 }
 
-final class ForecastInteractor: Interactorable {
+protocol ForecastInteractorProtocol: Interactorable {
+    func queryWeatherChange(_ keyword: String)
+    func fetchRemoteWeather(from query: String) -> Observable<(Weather?, AppError?)>
+    func getWeatherFromLocalDb(from query: String) -> Observable<Weather?>
+}
+
+final class ForecastInteractor: ForecastInteractorProtocol {
     weak var presenter: ForecastInteractorOutputs?
     private let localDatabase: LocalDatabaseProtocol
     private let remoteRequest: RemoteRequestProtocol
@@ -70,9 +76,11 @@ final class ForecastInteractor: Interactorable {
                 self?.presenter?.showIndicator(isLoading)
             })
             .disposed(by: disposeBag)
-            
     }
-    
+}
+
+// MARK: - Presenter handle
+extension ForecastInteractor {
     func queryWeatherChange(_ keyword: String) {
         self.querySubject.onNext(keyword)
     }
@@ -80,7 +88,7 @@ final class ForecastInteractor: Interactorable {
 
 // MARK: - Remote handle
 extension ForecastInteractor {
-    private func fetchRemoteWeather(from query: String) -> Observable<(Weather?, AppError?)> {
+    func fetchRemoteWeather(from query: String) -> Observable<(Weather?, AppError?)> {
         return self.remoteRequest
             .fetchListForecast(for: query,
                                apiKey: AppKey.apiKey,
@@ -93,7 +101,7 @@ extension ForecastInteractor {
 
 // MARK: - Local handle
 extension ForecastInteractor {
-    private func getWeatherFromLocalDb(from query: String) -> Observable<Weather?> {
+    func getWeatherFromLocalDb(from query: String) -> Observable<Weather?> {
         guard let weather = self.localDatabase.getWeather(by: query) else {
             return .just(nil)
         }

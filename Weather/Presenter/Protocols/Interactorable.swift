@@ -7,6 +7,6 @@
 //
 import Foundation
 
-protocol Interactorable {
+protocol Interactorable: AnyObject {
     // nop
 }
