@@ -94,8 +94,19 @@ extension ForecastInteractor {
 // MARK: - Local handle
 extension ForecastInteractor {
     private func getWeatherFromLocalDb(from query: String) -> Observable<Weather?> {
-        let weathers = self.localDatabase.getWeather(by: query)
-        return .just(weathers)
+        guard let weather = self.localDatabase.getWeather(by: query) else {
+            return .just(nil)
+        }
+        
+        let dayDuration = 86400
+        let dateNow = Int(Date().timeIntervalSince1970) / dayDuration
+        let localDate = (weather.forecasts?.first?.dayTime).unwrapValue() / dayDuration
+        
+        guard dateNow == localDate else {
+            self.localDatabase.deleteWeather(weather)
+            return .just(nil)
+        }
+        return .just(weather)
     }
     
     private func saveWeatherToLocalDb(_ weather: Weather?) {

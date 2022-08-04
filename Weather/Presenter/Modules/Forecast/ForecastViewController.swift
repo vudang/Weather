@@ -10,6 +10,7 @@ import UIKit
 import RxRelay
 import RxSwift
 import RxCocoa
+import AVFoundation
 
 protocol ForecastViewOutputs: AnyObject {
     func searchWeatherForecast(with keyword: String)
@@ -20,6 +21,8 @@ final class ForecastViewController: UIViewController, ForecastViewInputs, Viewab
     internal var presenter: ForecastViewOutputs?
     internal let forecastSubject = BehaviorRelay<[Forecast]>.init(value: [])
     private lazy var disposeBag = DisposeBag()
+    private var fontSize = FontSize.kSize
+    private let synthesizer = AVSpeechSynthesizer()
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var indicatorView: UIActivityIndicatorView!
@@ -27,7 +30,6 @@ final class ForecastViewController: UIViewController, ForecastViewInputs, Viewab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.configure()
     }
     
@@ -40,6 +42,8 @@ final class ForecastViewController: UIViewController, ForecastViewInputs, Viewab
         navigationController?.navigationBar.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.sizeToFit()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "textformat.size"), style: .plain, target: self, action: #selector(changeFontPressed))
+        navigationItem.rightBarButtonItem?.tintColor = .black
         
         configureTableView()
         configureSearchBar()
@@ -52,14 +56,15 @@ final class ForecastViewController: UIViewController, ForecastViewInputs, Viewab
         tableView.register(ForecastTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
         forecastSubject.observe(on: MainScheduler.instance)
-            .bind(to: tableView.rx.items(cellIdentifier: cellIdentifier, cellType: ForecastTableViewCell.self)) { (row, data, cell) in
-                cell.configure(with: data)
+            .bind(to: tableView.rx.items(cellIdentifier: cellIdentifier, cellType: ForecastTableViewCell.self)) { [weak self] (row, data, cell) in
+                cell.configure(with: data, fontSize: self?.fontSize ?? FontSize.kSize)
             }.disposed(by: disposeBag)
         
         tableView.rx.modelSelected(Forecast.self)
             .observe(on: MainScheduler.instance)
             .bind { [weak self] forecast in
                 self?.presenter?.didSelected(forecast)
+                self?.playTextToSpeed(forecast.textToSpeed)
             }.disposed(by: disposeBag)
         
         forecastSubject.skip(1)
@@ -91,6 +96,62 @@ final class ForecastViewController: UIViewController, ForecastViewInputs, Viewab
             .map { !$0.isEmpty }
             .bind(to: emptyView.rx.isHidden )
             .disposed(by: disposeBag)
+    }
+    
+    @objc func changeFontPressed() {
+        self.showFontSizeConfig()
+    }
+    
+    private func playTextToSpeed(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+
+        synthesizer.stopSpeaking(at: .immediate)
+        synthesizer.speak(utterance)
+    }
+}
+
+// MARK: - FontSize Handle
+extension ForecastViewController {
+    private func showFontSizeConfig() {
+        let configView = FontSizeView()
+        configView.alpha = 0
+        self.navigationController?.view.addSubview(configView)
+        configView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(90)
+            make.trailing.leading.bottom.equalToSuperview()
+        }
+        UIView.animate(withDuration: 0.3) {
+            configView.alpha = 1
+        }
+        
+        configView.increaseFont
+            .subscribe { [weak self] _ in
+                self?.increaseFontSize()
+            }.disposed(by: disposeBag)
+        
+        configView.decreaseFont
+            .subscribe { [weak self] _ in
+                self?.decreaseFontSize()
+            }.disposed(by: disposeBag)
+        
+        configView.dismissEvent
+            .subscribe { _ in
+                configView.removeFromSuperview()
+            }.disposed(by: disposeBag)
+    }
+    
+    private func increaseFontSize() {
+        self.fontSize += 5
+        self.fontSize = min(self.fontSize, 35)
+        self.tableView.reloadData()
+    }
+    
+    private func decreaseFontSize() {
+        self.fontSize -= 5
+        self.fontSize = max(self.fontSize, 17)
+        self.tableView.reloadData()
     }
 }
 

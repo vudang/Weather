@@ -37,3 +37,22 @@ extension Forecast {
         return forecast
     }
 }
+
+extension Forecast {
+    var textToSpeed: String {
+        let timeStr = ["Date:", dayTime?.toDate().toString()]
+            .compactMap { $0 }
+            .joined(separator: " ")
+        let avgTempStr = ["Average Temerature:", temperature?.averageValue]
+            .compactMap { $0 }
+            .joined(separator: " ")
+        let pressureStr = ["Pressure:", pressureValue]
+            .joined(separator: " ")
+        let humidityStr = ["Dumidity:", humidityValue]
+            .joined(separator: " ")
+        let descStr = ["Description:", weather?.first?.weatherDescription]
+            .compactMap { $0 }
+            .joined(separator: " ")
+        return [timeStr, avgTempStr, pressureStr, humidityStr, descStr].joined(separator: ", ")
+    }
+}

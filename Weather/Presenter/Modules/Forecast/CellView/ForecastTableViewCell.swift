@@ -14,35 +14,40 @@ class ForecastTableViewCell: UITableViewCell {
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: FontSize.kSize)
         return label
     }()
     
     private let avgTempLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: FontSize.kSize)
         return label
     }()
     
     private let pressureLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: FontSize.kSize)
         return label
     }()
     
     private let humidityLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: FontSize.kSize)
         return label
     }()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: FontSize.kSize)
         return label
     }()
     
@@ -72,7 +77,7 @@ class ForecastTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(with forecast: Forecast) {
+    func configure(with forecast: Forecast, fontSize: CGFloat = FontSize.kSize) {
         let timeStr = ["Date:", forecast.dayTime?.toDate().toString()]
             .compactMap { $0 }
             .joined(separator: " ")
@@ -94,10 +99,22 @@ class ForecastTableViewCell: UITableViewCell {
         descriptionLabel.text = descStr
         
         if let img = forecast.weather?.first?.iconUrl, let url = URL(string: img) {
-            iconImageView.af.setImage(withURL: url)
+            iconImageView.af.setImage(withURL: url, cacheKey: img)
         } else {
             iconImageView.image = nil
         }
+        
+        self.changeFontSize(to: fontSize)
+    }
+    
+    private func changeFontSize(to size: CGFloat) {
+        dateLabel.font = UIFont.systemFont(ofSize: size)
+        avgTempLabel.font = UIFont.systemFont(ofSize: size)
+        pressureLabel.font = UIFont.systemFont(ofSize: size)
+        humidityLabel.font = UIFont.systemFont(ofSize: size)
+        descriptionLabel.font = UIFont.systemFont(ofSize: size)
+        self.layoutSubviews()
+        self.layoutIfNeeded()
     }
 }
 
@@ -120,7 +137,7 @@ extension ForecastTableViewCell {
         self.contentStackView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(20)
             make.leading.equalToSuperview().offset(20)
-            make.trailing.equalTo(iconImageView.snp.leading).inset(20)
+            make.trailing.equalTo(iconImageView.snp.leading).inset(-20)
         }
     }
 }

@@ -43,6 +43,8 @@
 		EA81402D289B9A3100D52E19 /* LocalDatabaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81402C289B9A3100D52E19 /* LocalDatabaseImpl.swift */; };
 		EA81402F289B9B0F00D52E19 /* RemoteRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81402E289B9B0F00D52E19 /* RemoteRequestProtocol.swift */; };
 		EA814031289B9B5000D52E19 /* RemoteRequestImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA814030289B9B5000D52E19 /* RemoteRequestImpl.swift */; };
+		EA814033289BC88200D52E19 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA814032289BC88200D52E19 /* Constant.swift */; };
+		EA814035289BDD2000D52E19 /* FontSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA814034289BDD2000D52E19 /* FontSizeView.swift */; };
 		EAC44E10289A3FE200DFE305 /* city.list.json in Resources */ = {isa = PBXBuildFile; fileRef = EAC44E0F289A3FE200DFE305 /* city.list.json */; };
 		EAC44E13289A4C9000DFE305 /* AppKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC44E12289A4C9000DFE305 /* AppKey.swift */; };
 		EAC44E15289A4DFB00DFE305 /* WeatherUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC44E14289A4DFB00DFE305 /* WeatherUnit.swift */; };
@@ -122,6 +124,8 @@
 		EA81402C289B9A3100D52E19 /* LocalDatabaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabaseImpl.swift; sourceTree = "<group>"; };
 		EA81402E289B9B0F00D52E19 /* RemoteRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRequestProtocol.swift; sourceTree = "<group>"; };
 		EA814030289B9B5000D52E19 /* RemoteRequestImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRequestImpl.swift; sourceTree = "<group>"; };
+		EA814032289BC88200D52E19 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		EA814034289BDD2000D52E19 /* FontSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeView.swift; sourceTree = "<group>"; };
 		EAC44E0F289A3FE200DFE305 /* city.list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.list.json; sourceTree = "<group>"; };
 		EAC44E12289A4C9000DFE305 /* AppKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKey.swift; sourceTree = "<group>"; };
 		EAC44E14289A4DFB00DFE305 /* WeatherUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUnit.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				475B02F326A7273700712ED5 /* ForecastTableViewCell.swift */,
+				EA814034289BDD2000D52E19 /* FontSizeView.swift */,
 			);
 			path = CellView;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				EAC44E12289A4C9000DFE305 /* AppKey.swift */,
 				EAC44E14289A4DFB00DFE305 /* WeatherUnit.swift */,
 				EAC44E2F289A572C00DFE305 /* Host.swift */,
+				EA814032289BC88200D52E19 /* Constant.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -616,6 +622,7 @@
 				EAC44E2D289A54CE00DFE305 /* Temperature.swift in Sources */,
 				475B02E626A6A65E00712ED5 /* APIRouter.swift in Sources */,
 				EAC44E15289A4DFB00DFE305 /* WeatherUnit.swift in Sources */,
+				EA814035289BDD2000D52E19 /* FontSizeView.swift in Sources */,
 				EAC44E13289A4C9000DFE305 /* AppKey.swift in Sources */,
 				AED17A2821993C450000127C /* ForecastInteractor.swift in Sources */,
 				AED17A2621993C2A0000127C /* ForecastRouterInput.swift in Sources */,
@@ -634,6 +641,7 @@
 				EA81401B289B6A5600D52E19 /* WeatherStoreable.swift in Sources */,
 				475B02F526A7273700712ED5 /* ForecastTableViewCell.swift in Sources */,
 				AED17A1021992ABB0000127C /* Routerable.swift in Sources */,
+				EA814033289BC88200D52E19 /* Constant.swift in Sources */,
 				EA814014289B67AE00D52E19 /* LocalDataManager.swift in Sources */,
 				AED17A2421993C180000127C /* ForecastPresenter.swift in Sources */,
 				EAC44E3E289AD13300DFE305 /* WrapValue.swift in Sources */,
@@ -808,6 +816,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WZBH343F2N;
 				INFOPLIST_FILE = "$(SRCROOT)/Weather/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -829,6 +838,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WZBH343F2N;
 				INFOPLIST_FILE = "$(SRCROOT)/Weather/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
