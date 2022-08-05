@@ -17,6 +17,7 @@ Weather Forecast is a small iOS application that help users are easy to search a
 6. Handle failures status and show error message to user.
 7. Scale text feature for more people who can not see the text clearly
 8. VoiceOver feature when user tap to forecast item.
+9. Units test to cover app logic
 
 
 <a name="Architecture"></a>
