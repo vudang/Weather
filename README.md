@@ -22,11 +22,17 @@ Weather Forecast is a small iOS application that help users are easy to search a
 <a name="Architecture"></a>
 ## Architecture
 This project is using VIPER design pattern and combine with Clean architecture. For detail of architecture, let see the diagram below:
- 
+
+![alt text](https://github.com/vudang/Weather/blob/main/READMEResources/Architecture.png "")
 
 <a name="FeatureDesign"></a>
 ## Design Technical Proposal
+This is technical design for searching feature in the Weather project.
 
+![alt text](https://github.com/vudang/Weather/blob/main/READMEResources/Weather_Flow_Diagram.png "")
 
 <a name="Demo"></a>
 ## Demo
+Video demo Weather app.
+
+![alt text](https://github.com/vudang/Weather/blob/main/READMEResources/demo.mp4 "")
