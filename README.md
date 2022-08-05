@@ -35,4 +35,4 @@ This is technical design for searching feature in the Weather project.
 ## Demo
 Video demo Weather app.
 
-![alt text](https://github.com/vudang/Weather/blob/main/READMEResources/demo.mp4 "")
+[![Demo](https://i9.ytimg.com/vi/UwHVTaH6Hzk/mqdefault.jpg?v=62ec9eb7&sqp=CPS7spcG&rs=AOn4CLA8JhNrPZ4reT7kjnTz5WZ0b8Jn2w)](https://youtube.com/shorts/UwHVTaH6Hzk)
