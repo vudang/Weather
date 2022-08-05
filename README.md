@@ -1,1 +1,32 @@
-# Weather
+# Weather Forecast
+Weather Forecast is a small iOS application that help users are easy to search and find the weather's forecast information in next 7 days. 
+
+## Table of Contents  
+1. [Features](#Features)  
+2. [Architecture](#Architecture)  
+3. [Design Technical Proposal](#FeatureDesign)  
+4. [Demo](#Demo)  
+
+<a name="Features"></a>
+## Features
+1. Retrive weather data from OpenWeatherMaps API.
+2. Allow user search weather's forecast by City name.
+3. Show weather's forecast for city in next 7 days.
+4. Support caching mechanism
+5. Show weather's icon status on the right side.
+6. Handle failures status and show error message to user.
+7. Scale text feature for more people who can not see the text clearly
+8. VoiceOver feature when user tap to forecast item.
+
+
+<a name="Architecture"></a>
+## Architecture
+This project is using VIPER design pattern and combine with Clean architecture. For detail of architecture, let see the diagram below:
+ 
+
+<a name="FeatureDesign"></a>
+## Design Technical Proposal
+
+
+<a name="Demo"></a>
+## Demo
